@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { file: "IMG_8148.jpg", desc: "Star Trac Abdominal Crunch Machine", available: "Yes" },
     { file: "IMG_8149.jpg", desc: "Cybex Eagle Arm Curl Machine (Preacher Curl)", available: "Yes" },
     { file: "20250524_194637033_iOS.jpg", desc: "Decline Bench Press (Body Masters)", available: "Yes" },
-    { file: "20250524_194724079_iOS.jpg", desc: "Hammer Strength Seated Dip Machine (Plate-Loaded)", available: "Yes" },
+    { file: "20250524_194724079_iOS.jpg", desc: "Hammer Strength Seated Shrug Machine (Plate-Loaded)", available: "Yes" },
     { file: "20250524_192234282_iOS.jpg", desc: "Hammer Strength Plate Loaded Decline", available: "Yes" },
     { file: "20250524_193310427_iOS.jpg", desc: "Life Fitness Abdominal Crunch Machine (Selectorized)", available: "Yes" },
     { file: "20250524_193841412_iOS.jpg", desc: "Body Masters Adjustable Incline/Flat Bench", available: "Yes" },
@@ -20,12 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
     { file: "20250524_194402248_iOS.jpg", desc: "Adjustable Flat/Incline Bench", available: "Yes" },
     { file: "20250524_194521990_iOS.jpg", desc: "BodyMasters Flat Bench Press Station (Olympic Style, Fixed)", available: "Yes" },
     { file: "20250524_194149351_iOS.jpg", desc: "Steelflex Standing Sissy Squat", available: "Yes" },
-    { file: "20250524_194208858_iOS.jpg", desc: "Utility Seat (for Seated Dumbbell Presses or Machines)", available: "Yes" },
+    { file: "20250524_194208858_iOS.jpg", desc: "Utility Seat (Seated Dumbbell Presses)", available: "Yes" },
     { file: "20250524_194211861_iOS.jpg", desc: "Life Fitness Adjustable Incline/flat Bench", available: "Yes" },
     { file: "20250524_194112552_iOS.jpg", desc: "Olympic Incline Bench Press BodyMasters", available: "Yes" },
     { file: "IMG_4082.jpg", desc: "Cybex Eagle Abduction Machine (Selectorized)", available: "Yes" },
     { file: "IMG_4080.jpg", desc: "Paramount rotary Lat Pulldown (Selectorized)", available: "Yes" },
-    { file: "IMG_4083.jpg", desc: "Adjustable Bench", available: "Yes" }
+    { file: "IMG_4083.jpg", desc: "Adjustable Bench", available: "Yes" },
+    { file: "IMG_9682.jpg", desc: "Life Fitness Adjustable Utility Bench", available: "Yes" },
+    { file: "IMG_9683.jpg", desc: "Life Fitness Fixed Shoulder Utility Bench", available: "Yes" },
+    { file: "IMG_9684.jpg", desc: "Paramount Selectorized Leg Extension Machine", available: "Yes" },
+    { file: "IMG_9681.jpg", desc: "Nautilus Selectorized Shoulder Press Machine (Vertical Handles)", available: "Yes" },
+    { file: "IMG_9679.jpg", desc: "Hammer Strength Adjustable Incline Bench", available: "Yes" },
+    { file: "IMG_9680.jpg", desc: "Hoist Dual 2 Multi-Chest press selector", available: "Yes" }
   ];
 
   // Filter only available items
