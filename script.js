@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { file: "20250524_193841412_iOS.jpg", desc: "Body Masters Adjustable Incline/Flat Bench", available: "Yes" },
     { file: "20250524_193917665_iOS.jpg", desc: "Body Masters - roman chair/back extension/ghd", available: "Yes" },
     { file: "20250524_194402248_iOS.jpg", desc: "Adjustable Flat/Incline Bench", available: "Yes" },
-    { file: "20250524_194521990.jpg", desc: "BodyMasters Flat Bench Press Station (Olympic Style, Fixed)", available: "Yes" },
+    { file: "20250524_194521990_iOS.jpg", desc: "BodyMasters Flat Bench Press Station (Olympic Style, Fixed)", available: "Yes" },
     { file: "20250524_194149351_iOS.jpg", desc: "Steelflex Standing Sissy Squat", available: "Yes" },
     { file: "20250524_194208858_iOS.jpg", desc: "Utility Seat (for Seated Dumbbell Presses or Machines)", available: "Yes" },
     { file: "20250524_194211861_iOS.jpg", desc: "Life Fitness Adjustable Incline/flat Bench", available: "Yes" },
