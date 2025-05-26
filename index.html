@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>KlickWay Athletics - Equipment For Sale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="Klickway-Athletics_Secondary-Logo-on-Black.png" alt="KlickWay Athletics Logo" class="logo">
+    <h1>KlickWay Athletics - Equipment For Sale</h1>
+  </header>
+  <main>
+    <section id="equipment-gallery">
+      <h2>Available Equipment</h2>
+      <div class="gallery-grid">
+        <!-- Equipment items will be inserted here by script.js -->
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        Direct message us on
+        <a href="http://instagram.com/klickwayathletics" target="_blank" rel="noopener">Instagram</a>
+        or use the inquiry form below.
+      </p>
+      <form id="inquiry-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <label>
+          Your Name:
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Your Email:
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Equipment of Interest (select one or more):
+          <select name="equipment" id="equipment-select" multiple required size="5">
+            <!-- Options will be populated by script.js -->
+          </select>
+        </label>
+        <label>
+          Suggested Price (optional):
+          <input type="number" name="suggested_price" min="0" step="any" placeholder="Enter your offer">
+        </label>
+        <label>
+          Message:
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <input type="hidden" name="_subject" value="Gym Equipment Inquiry">
+        <input type="hidden" name="_cc" value="getfit@klickwayathletics.com">
+        <button type="submit">Send Inquiry</button>
+      </form>
+      <div id="form-status"></div>
+    </section>
+  </main>
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" style="display:none;">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+  </div>
+  <footer>
+    &copy; 2025 KlickWay Athletics. All rights reserved.
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

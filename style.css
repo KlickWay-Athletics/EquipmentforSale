@@ -1,0 +1,276 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #18191B;
+  color: #f3f3f3;
+}
+
+header {
+  background: #232325;
+  padding: 24px 0 12px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+h1 {
+  margin: 0 0 8px 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 32px auto 0 auto;
+  padding: 0 16px;
+}
+
+#equipment-gallery h2,
+#contact h2 {
+  margin-top: 0;
+  color: #E6232E;
+  font-size: 1.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 18px;
+}
+
+.equipment-card {
+  background: #232325;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 12px 14px 12px;
+  transition: box-shadow 0.2s, border 0.2s;
+  border: 2px solid transparent;
+}
+
+.equipment-card:hover {
+  box-shadow: 0 4px 20px rgba(230,35,46,0.13);
+  border: 2px solid #E6232E;
+}
+
+.equipment-card img {
+  width: 100%;
+  max-width: 240px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background: #18191B;
+  border: 1.5px solid #E6232E;
+}
+
+.equipment-card .description {
+  font-size: 1.08rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+#contact {
+  margin-top: 48px;
+  background: #232325;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  padding: 28px 20px 20px 20px;
+}
+
+#contact p {
+  font-size: 1.08rem;
+}
+
+#contact a {
+  color: #E6232E;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+form#inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+form#inquiry-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #E6232E;
+}
+
+form#inquiry-form input,
+form#inquiry-form textarea,
+form#inquiry-form select {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1.5px solid #E6232E;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #18191B;
+  color: #fff;
+}
+
+form#inquiry-form input:focus,
+form#inquiry-form textarea:focus,
+form#inquiry-form select:focus {
+  outline: none;
+  border-color: #E6232E;
+  box-shadow: 0 0 0 2px rgba(230,35,46,0.18);
+}
+
+form#inquiry-form button {
+  margin-top: 8px;
+  padding: 10px 0;
+  background: #E6232E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form#inquiry-form button:hover {
+  background: #b81a22;
+}
+
+#form-status {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: #1a4d8f;
+}
+
+/* Lightbox Modal Styles */
+.lightbox-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 30, 50, 0.92);
+  flex-direction: column;
+  transition: opacity 0.2s;
+}
+
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 70vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  background: #fff;
+  margin-bottom: 12px;
+}
+
+.lightbox-caption {
+  color: #fff;
+  font-size: 1.15rem;
+  text-align: center;
+  margin-bottom: 18px;
+  max-width: 90vw;
+  word-break: break-word;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 36px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+  text-shadow: 0 2px 8px #000;
+  transition: color 0.2s;
+}
+.lightbox-close:hover {
+  color: #ff5252;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 50, 80, 0.7);
+  color: #fff;
+  border: none;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  user-select: none;
+}
+.lightbox-prev {
+  left: 24px;
+}
+.lightbox-next {
+  right: 24px;
+}
+.lightbox-nav:hover {
+  background: #1a4d8f;
+}
+
+@media (max-width: 600px) {
+  .lightbox-img {
+    max-width: 98vw;
+    max-height: 50vh;
+  }
+  .lightbox-caption {
+    font-size: 1rem;
+    padding: 0 8px;
+  }
+  .lightbox-close {
+    top: 10px;
+    right: 16px;
+    font-size: 2rem;
+  }
+  .lightbox-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.7rem;
+    left: 8px;
+    right: 8px;
+  }
+  .lightbox-prev {
+    left: 8px;
+  }
+  .lightbox-next {
+    right: 8px;
+  }
+}
+
+footer {
+  margin-top: 48px;
+  padding: 18px 0;
+  text-align: center;
+  background: #232325;
+  color: #E6232E;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
