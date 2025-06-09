@@ -1,80 +1,209 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Equipment data: filename, description, and availability
-  const equipmentList = [
-    { file: "IMG_8150.jpg", desc: "Incline Chest Press Machine (Plate-Loaded)", available: "Yes" },
-    { file: "IMG_8185.jpg", desc: "Pendulum Squat Machine", available: "Yes" },
-    { file: "IMG_8184.jpg", desc: "Smith Machine (Counterbalanced Barbell)", available: "Yes" },
-    { file: "20250524_193941276_iOS.jpg", desc: "Decline Bench (Body Masters)", available: "Yes" },
-    { file: "20250524_193945485_iOS.jpg", desc: "Flat Bench (Body Masters)", available: "Yes" },
-    { file: "IMG_8186.jpg", desc: "Precor Plate-Loaded Lat Pulldown", available: "Yes" },
-    { file: "IMG_8196.jpg", desc: "Maxicam Leg Extension Machine (Selectorized)", available: "Yes" },
-    { file: "IMG_8194.jpg", desc: "Precor Plate-Loaded ISO Lat Pulldown", available: "Yes" },
-    { file: "IMG_8148.jpg", desc: "Star Trac Abdominal Crunch Machine", available: "Yes" },
-    { file: "IMG_8149.jpg", desc: "Cybex Eagle Arm Curl Machine (Preacher Curl)", available: "Yes" },
-    { file: "20250524_194637033_iOS.jpg", desc: "Decline Bench Press (Body Masters)", available: "Yes" },
-    { file: "20250524_194724079_iOS.jpg", desc: "Hammer Strength Seated Shrug Machine (Plate-Loaded)", available: "Yes" },
-    { file: "20250524_192234282_iOS.jpg", desc: "Hammer Strength Plate Loaded Decline", available: "Yes" },
-    { file: "20250524_193310427_iOS.jpg", desc: "Life Fitness Abdominal Crunch Machine (Selectorized)", available: "Yes" },
-    { file: "20250524_193841412_iOS.jpg", desc: "Body Masters Adjustable Incline/Flat Bench", available: "Yes" },
-    { file: "20250524_193917665_iOS.jpg", desc: "Body Masters - roman chair/back extension/ghd", available: "Yes" },
-    { file: "20250524_194402248_iOS.jpg", desc: "Adjustable Flat/Incline Bench", available: "Yes" },
-    { file: "20250524_194521990_iOS.jpg", desc: "BodyMasters Flat Bench Press Station (Olympic Style, Fixed)", available: "Yes" },
-    { file: "20250524_194149351_iOS.jpg", desc: "Steelflex Standing Sissy Squat", available: "Yes" },
-    { file: "20250524_194208858_iOS.jpg", desc: "Utility Seat (Seated Dumbbell Presses)", available: "Yes" },
-    { file: "20250524_194211861_iOS.jpg", desc: "Life Fitness Adjustable Incline/flat Bench", available: "Yes" },
-    { file: "20250524_194112552_iOS.jpg", desc: "Olympic Incline Bench Press BodyMasters", available: "Yes" },
-    { file: "IMG_4082.jpg", desc: "Cybex Eagle Abduction Machine (Selectorized)", available: "Yes" },
-    { file: "IMG_4080.jpg", desc: "Paramount rotary Lat Pulldown (Selectorized)", available: "Yes" },
-    { file: "IMG_4083.jpg", desc: "Adjustable Bench", available: "Yes" },
-    { file: "IMG_9682.jpg", desc: "Life Fitness Adjustable Utility Bench", available: "Yes" },
-    { file: "IMG_9683.jpg", desc: "Life Fitness Fixed Shoulder Utility Bench", available: "Yes" },
-    { file: "IMG_9684.jpg", desc: "Paramount Selectorized Leg Extension Machine", available: "Yes" },
-    { file: "IMG_9681.jpg", desc: "Nautilus Selectorized Shoulder Press Machine (Vertical Handles)", available: "Yes" },
-    { file: "IMG_9679.jpg", desc: "Hammer Strength Adjustable Incline Bench", available: "Yes" },
-    { file: "IMG_9680.jpg", desc: "Hoist Dual 2 Multi-Chest press selector", available: "Yes" }
-  ];
-
-  // Filter only available items
-  const availableEquipment = equipmentList.filter(item => item.available === "Yes");
-
-  const gallery = document.querySelector('.gallery-grid');
-  // For lightbox navigation
-  let currentIndex = 0;
-
-  // Populate equipment select dropdown in the form
-  const equipmentSelect = document.getElementById('equipment-select');
-  if (equipmentSelect) {
-    availableEquipment.forEach((item) => {
-      const option = document.createElement('option');
-      option.value = item.desc;
-      option.textContent = item.desc;
-      equipmentSelect.appendChild(option);
-    });
+  // Load equipment data from CSV file
+  let equipmentList = [];
+  
+  // Function to load and parse CSV data
+  async function loadEquipmentData() {
+    try {
+      const response = await fetch('Final_Gym_Equipment_Identification.csv');
+      const csvText = await response.text();
+      const lines = csvText.trim().split('\n');
+      
+      // Skip header row and parse data
+      for (let i = 1; i < lines.length; i++) {
+        const [file, desc, available, category] = lines[i].split(',');
+        if (file && desc && available) {
+          equipmentList.push({
+            file: file.trim(),
+            desc: desc.trim(),
+            available: available.trim(),
+            category: category ? category.trim() : 'Other'
+          });
+        }
+      }
+      
+      // Initialize the page after data is loaded
+      initializePage();
+    } catch (error) {
+      console.error('Error loading equipment data:', error);
+      
+      // Show error message
+      const loadingMessage = document.getElementById('loading-message');
+      if (loadingMessage) {
+        loadingMessage.textContent = 'Error loading equipment data. Please refresh the page or contact us directly.';
+        loadingMessage.className = 'error-message';
+      }
+      
+      // Fallback to hardcoded data if CSV fails to load
+      equipmentList = [
+        { file: "IMG_8150.jpg", desc: "Incline Chest Press Machine (Plate-Loaded)", available: "Yes" },
+        { file: "IMG_8185.jpg", desc: "Pendulum Squat Machine", available: "No" },
+        { file: "IMG_8184.jpg", desc: "Smith Machine (Counterbalanced Barbell)", available: "Yes" }
+      ];
+      initializePage();
+    }
   }
 
-  // Render available equipment in the gallery
-  availableEquipment.forEach((item, idx) => {
-    const card = document.createElement('div');
-    card.className = 'equipment-card';
+  // Initialize page content after data is loaded
+  function initializePage() {
+    // Hide loading message and show equipment count
+    const loadingMessage = document.getElementById('loading-message');
+    const equipmentCount = document.getElementById('equipment-count');
+    const categoryFilter = document.getElementById('category-filter');
+    
+    if (loadingMessage) loadingMessage.style.display = 'none';
+    
+    // Filter only available items
+    const availableEquipment = equipmentList.filter(item => item.available === "Yes");
+    
+    // Show equipment count
+    if (equipmentCount) {
+      equipmentCount.textContent = `${availableEquipment.length} items available`;
+      equipmentCount.style.display = 'block';
+    }
 
-    const img = document.createElement('img');
-    img.src = `EquipmentPhotos/${item.file}`;
-    img.alt = item.desc;
-    img.tabIndex = 0;
-    img.style.cursor = "pointer";
-    img.addEventListener('click', () => openLightbox(idx));
-    img.addEventListener('keydown', (e) => {
-      if (e.key === "Enter" || e.key === " ") openLightbox(idx);
-    });
+    // Set up category filtering
+    const categories = [...new Set(availableEquipment.map(item => item.category).filter(cat => cat))].sort();
+    const categorySelect = document.getElementById('category-select');
+    
+    if (categorySelect && categories.length > 0) {
+      // Populate category dropdown
+      categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+      });
+      
+      // Show category filter
+      if (categoryFilter) categoryFilter.style.display = 'flex';
+      
+      // Add category filter event listener
+      categorySelect.addEventListener('change', function() {
+        renderEquipment(availableEquipment, this.value);
+      });
+    }
 
-    const desc = document.createElement('div');
-    desc.className = 'description';
-    desc.textContent = item.desc;
+    const gallery = document.querySelector('.gallery-grid');
+    // For lightbox navigation
+    let currentIndex = 0;
+    let currentFilteredEquipment = availableEquipment;
 
-    card.appendChild(img);
-    card.appendChild(desc);
-    gallery.appendChild(card);
-  });
+    // Populate equipment select dropdown in the form
+    const equipmentSelect = document.getElementById('equipment-select');
+    if (equipmentSelect) {
+      availableEquipment.forEach((item) => {
+        const option = document.createElement('option');
+        option.value = item.desc;
+        option.textContent = item.desc;
+        equipmentSelect.appendChild(option);
+      });
+    }
+
+    // Function to render equipment based on category filter
+    function renderEquipment(equipment, selectedCategory = 'all') {
+      // Clear existing content
+      gallery.innerHTML = '';
+      
+      // Filter equipment by category
+      const filteredEquipment = selectedCategory === 'all' 
+        ? equipment 
+        : equipment.filter(item => item.category === selectedCategory);
+      
+      currentFilteredEquipment = filteredEquipment;
+      
+      // Update equipment count
+      if (equipmentCount) {
+        const countText = selectedCategory === 'all' 
+          ? `${filteredEquipment.length} items available`
+          : `${filteredEquipment.length} items in ${selectedCategory}`;
+        equipmentCount.textContent = countText;
+      }
+      
+      // Group equipment by category for organized display
+      if (selectedCategory === 'all') {
+        const groupedEquipment = {};
+        filteredEquipment.forEach(item => {
+          const category = item.category || 'Other';
+          if (!groupedEquipment[category]) {
+            groupedEquipment[category] = [];
+          }
+          groupedEquipment[category].push(item);
+        });
+        
+        // Render by categories
+        Object.keys(groupedEquipment).sort().forEach(category => {
+          const categorySection = document.createElement('div');
+          categorySection.className = 'category-section';
+          
+          const categoryTitle = document.createElement('h3');
+          categoryTitle.className = 'category-title';
+          categoryTitle.textContent = `${category} (${groupedEquipment[category].length})`;
+          categorySection.appendChild(categoryTitle);
+          
+          const categoryGrid = document.createElement('div');
+          categoryGrid.className = 'gallery-grid';
+          
+          groupedEquipment[category].forEach((item, idx) => {
+            const globalIdx = filteredEquipment.indexOf(item);
+            const card = createEquipmentCard(item, globalIdx);
+            categoryGrid.appendChild(card);
+          });
+          
+          categorySection.appendChild(categoryGrid);
+          gallery.appendChild(categorySection);
+        });
+      } else {
+        // Render single category as grid
+        filteredEquipment.forEach((item, idx) => {
+          const card = createEquipmentCard(item, idx);
+          gallery.appendChild(card);
+        });
+      }
+    }
+    
+    // Function to create equipment card
+    function createEquipmentCard(item, idx) {
+      const card = document.createElement('div');
+      card.className = 'equipment-card';
+      card.setAttribute('data-category', item.category);
+
+      const img = document.createElement('img');
+      img.src = `EquipmentPhotos/${item.file}`;
+      img.alt = item.desc;
+      img.tabIndex = 0;
+      img.style.cursor = "pointer";
+      img.addEventListener('click', () => openLightbox(idx));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === "Enter" || e.key === " ") openLightbox(idx);
+      });
+
+      const desc = document.createElement('div');
+      desc.className = 'description';
+      desc.textContent = item.desc;
+      
+      // Add category badge
+      const categoryBadge = document.createElement('div');
+      categoryBadge.className = 'category-badge';
+      categoryBadge.textContent = item.category || 'Other';
+      categoryBadge.style.cssText = `
+        background: #E6232E;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        margin-top: 8px;
+        text-align: center;
+      `;
+
+      card.appendChild(img);
+      card.appendChild(desc);
+      card.appendChild(categoryBadge);
+      return card;
+    }
+
+    // Initial render - show all equipment organized by category
+    renderEquipment(availableEquipment);
 
   // Lightbox functionality
   const lightboxModal = document.getElementById('lightbox-modal');
@@ -97,19 +226,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showLightboxImage() {
-    const item = availableEquipment[currentIndex];
+    const item = currentFilteredEquipment[currentIndex];
     lightboxImg.src = `EquipmentPhotos/${item.file}`;
     lightboxImg.alt = item.desc;
     lightboxCaption.textContent = item.desc;
   }
 
   function showPrev() {
-    currentIndex = (currentIndex - 1 + availableEquipment.length) % availableEquipment.length;
+    currentIndex = (currentIndex - 1 + currentFilteredEquipment.length) % currentFilteredEquipment.length;
     showLightboxImage();
   }
 
   function showNext() {
-    currentIndex = (currentIndex + 1) % availableEquipment.length;
+    currentIndex = (currentIndex + 1) % currentFilteredEquipment.length;
     showLightboxImage();
   }
 
@@ -197,4 +326,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  
+  } // Close initializePage function
+  
+  // Load equipment data when page loads
+  loadEquipmentData();
 });

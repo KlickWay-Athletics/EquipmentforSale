@@ -1,32 +1,59 @@
-File Name,Equipment Type,available
-IMG_8150.jpg,Incline Chest Press Machine (Plate-Loaded),Yes
-IMG_8185.jpg,Pendulum Squat Machine,Yes
-IMG_8184.jpg,Smith Machine (Counterbalanced Barbell),Yes
-20250524_193941276_iOS.jpg,Decline Bench (Body Masters),Yes
-20250524_193945485_iOS.jpg,Flat Bench (Body Masters),Yes
-IMG_8186.jpg,Precor Plate-Loaded Lat Pulldown,Yes
-IMG_8196.jpg,Maxicam Leg Extension Machine (Selectorized),Yes
-IMG_8194.jpg,Precor Plate-Loaded ISO Lat Pulldown,Yes
-IMG_8148.jpg,Star Trac Abdominal Crunch Machine,Yes
-IMG_8149.jpg,Cybex Eagle Arm Curl Machine (Preacher Curl),Yes
-20250524_194637033_iOS.jpg,Decline Bench Press (Body Masters),Yes
-20250524_194724079_iOS.jpg,Hammer Strength Seated Shrug Machine (Plate-Loaded),Yes
-20250524_192234282_iOS.jpg,Hammer Strength Plate Loaded Decline,Yes
-20250524_193310427_iOS.jpg,Life Fitness Abdominal Crunch Machine (Selectorized),Yes
-20250524_193841412_iOS.jpg,Body Masters Adjustable Incline/Flat Bench,Yes
-20250524_193917665_iOS.jpg,Body Masters - roman chair/back extension/ghd,Yes
-20250524_194402248_iOS.jpg,Adjustable Flat/Incline Bench,Yes
-20250524_194521990_iOS.jpg,"BodyMasters Flat Bench Press Station (Olympic Style, Fixed)",Yes
-20250524_194149351_iOS.jpg,Steelflex Standing Sissy Squat,Yes
-20250524_194208858_iOS.jpg,Utility Seat (Seated Dumbbell Presses),Yes
-20250524_194211861_iOS.jpg,Life Fitness Adjustable Incline/flat Bench,Yes
-20250524_194112552_iOS.jpg,Olympic Incline Bench Press BodyMasters,Yes
-IMG_4082.jpg,Cybex Eagle Abduction Machine (Selectorized),Yes
-IMG_4080.jpg,Paramount rotary Lat Pulldown (Selectorized),Yes
-IMG_4083.jpg,Adjustable Bench,Yes
-IMG_9682.jpg,Life Fitness Adjustable Utility Bench,Yes
-IMG_9683.jpg,Life Fitness Fixed Shoulder Utility Bench,Yes
-IMG_9684.jpg,Paramount Selectorized Leg Extension Machine,Yes
-IMG_9681.jpg,Nautilus Selectorized Shoulder Press Machine (Vertical Handles),Yes
-IMG_9679.jpg,Hammer Strength Adjustable Incline Bench,Yes
-IMG_9680.jpg,Hoist Dual 2 Multi-Chest press selector,Yes
+File Name,Description,available,Category
+IMG_8150.jpg,Incline Chest Press Machine (Plate-Loaded),Yes,Chest
+IMG_8185.jpg,Pendulum Squat Machine,No,Legs
+IMG_8184.jpg,Smith Machine (Counterbalanced Barbell),Yes,Other
+20250524_193941276_iOS.jpg,Decline Bench (Body Masters),Yes,Bench
+20250524_193945485_iOS.jpg,Flat Bench (Body Masters),Yes,Bench
+IMG_8186.jpg,Precor Plate-Loaded Lat Pulldown,Yes,Back
+IMG_8196.jpg,Maxicam Leg Extension Machine (Selectorized),Yes,Legs
+IMG_8194.jpg,Precor Plate-Loaded ISO Lat Pulldown,Yes,Back
+IMG_8148.jpg,Star Trac Abdominal Crunch Machine,Yes,Abs
+IMG_8149.jpg,Cybex Eagle Arm Curl Machine,Yes,Arms
+20250524_194637033_iOS.jpg,Decline Bench Press (Body Masters),Yes,Chest
+20250524_194724079_iOS.jpg,Hammer Strength Seated Shrug Machine (Plate-Loaded),Yes,Back
+20250524_192234282_iOS.jpg,Hammer Strength Plate Loaded Decline,Yes,Chest
+20250524_193310427_iOS.jpg,Life Fitness Abdominal Crunch Machine (Selectorized),Yes,Abs
+20250524_193841412_iOS.jpg,Body Masters Adjustable Incline/Flat Bench,Yes,Bench
+20250524_193917665_iOS.jpg,Body Masters - roman chair/back extension/ghd,Yes,Glute
+20250524_194402248_iOS.jpg,Adjustable Flat/Incline Bench,Yes,Bench
+20250524_194521990_iOS.jpg,"BodyMasters Flat Bench Press Station (Olympic Style, Fixed)",Yes,Bench
+20250524_194149351_iOS.jpg,Steelflex Standing Sissy Squat,Yes,Legs
+20250524_194208858_iOS.jpg,Utility Seat (Seated Dumbbell Presses),Yes,Bench
+20250524_194211861_iOS.jpg,Life Fitness Adjustable Incline/flat Bench,Yes,Bench
+20250524_194112552_iOS.jpg,Olympic Incline Bench Press BodyMasters,Yes,Chest
+IMG_4082.jpg,Cybex Eagle Arm Curl Machine,Yes,Arms
+IMG_4080.jpg,Paramount rotary Lat Pulldown (Selectorized),Yes,Back
+IMG_4083.jpg,Adjustable Bench,Yes,Bench
+IMG_9682.jpg,Life Fitness Adjustable Utility Bench,Yes,Bench
+IMG_9683.jpg,Life Fitness Fixed Shoulder Utility Bench,Yes,Bench
+IMG_9684.jpg,Paramount Selectorized Leg Extension Machine,Yes,Legs
+IMG_9681.jpg,Nautilus Selectorized Shoulder Press Machine (Vertical Handles),Yes,Shoulder
+IMG_9679.jpg,Hammer Strength Fixed  Incline Bench,Yes,Bench
+IMG_9680.jpg,Hoist Dual 2 Multi-Chest press selector,Yes,Chest
+IMG_8095.jpg,Shoulder Press,Yes,Shoulder
+IMG_8096.jpg,Bolt Leg Press,Yes,Legs
+IMG_8097.jpg,Freemotion Lat Pull Down,Yes,Back
+IMG_8098.jpg,Laying Leg Curl,Yes,Legs
+IMG_8099.jpg,Precor Abductor Machine,Yes,Legs
+IMG_8100.jpg,Precor Leg Press,Yes,Legs
+IMG_8101.jpg,Glute Kickback,Yes,Glute
+IMG_8102.jpg,Precor Leg Extension,Yes,Legs
+IMG_8103.jpg,Life Fitness Seated Leg Curl Extension,Yes,Legs
+IMG_8104.jpg,Decline Bench,Yes,Abs
+IMG_8105.jpg,Adjustable Bench,Yes,Bench
+IMG_8106.jpg,Adjustable Incline Bench,Yes,Bench
+IMG_8107.jpg,Utility Seated Bench,Yes,Bench
+IMG_8108.jpg,Adjustable Bench,Yes,Bench
+IMG_8109.jpg,Utility Seated Bench,Yes,Bench
+IMG_8110.jpg,Flat Bench,Yes,Bench
+IMG_8111.jpg,Shurg Plate Loaded Hammer ,Yes,Back
+IMG_8112.jpg,Dumbell Rack and Dumbells,Yes,Misc
+IMG_8121.jpg,Precor Pin-Loaded Chest Press,Yes,Chest
+IMG_8122.jpg,Decline Bench Press,Yes,Chest
+IMG_8125.jpg,Utility Seat (Seated Dumbbell Presses),Yes,Bench
+IMG_8126.jpg,Adjustable Bench,Yes,Bench
+IMG_8127.jpg,Adjustable Bench,Yes,Bench
+IMG_8128.jpg,Leg Extension,Yes,Legs
+IMG_8123.jpg,Adjustable Bench,Yes,Bench
+IMG_8124.jpg,Utilitiy Shoulder Bench,Yes,Bench
+IMG_8120.jpg,T-Bar Row,Yes,Back

@@ -16,6 +16,17 @@
   <main>
     <section id="equipment-gallery">
       <h2>Available Equipment</h2>
+      <div id="equipment-count" class="equipment-count" style="display: none;"></div>
+      <div id="loading-message" class="loading-message">Loading equipment data...</div>
+      
+      <!-- Category Filter -->
+      <div id="category-filter" class="category-filter" style="display: none;">
+        <label for="category-select">Filter by Category:</label>
+        <select id="category-select">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      
       <div class="gallery-grid">
         <!-- Equipment items will be inserted here by script.js -->
       </div>
